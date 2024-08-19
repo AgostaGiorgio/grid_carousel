@@ -39,4 +39,7 @@ git checkout develop
 git merge master
 git push origin develop
 
+git checkout $version
+dart pub publish -f
+
 echo "Package released successfully!"

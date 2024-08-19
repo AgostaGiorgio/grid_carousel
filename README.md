@@ -30,9 +30,8 @@ class TestClassInfo {
 ```
 
 Define how each cell will look like:
-##### Note: It's important this class extends `GridCell` 
 ```dart
-class SimpleCell extends GridCell {
+class SimpleCell extends StatelessWidget {
   const SimpleCell({super.key, required this.value required this.number});
 
   final String value;
