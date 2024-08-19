@@ -11,8 +11,10 @@ class GridCarouselIndicator extends StatelessWidget {
 
   /// Total pages.
   final int len;
+
   /// Config class to customize the indicator.
   final GridCarouselIndicatorConfig config;
+
   /// PageController to get the current page while swipe animation is running.
   final PageController controller;
 

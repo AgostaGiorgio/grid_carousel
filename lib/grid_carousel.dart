@@ -25,25 +25,33 @@ class GridCarousel<T> extends StatefulWidget {
 
   /// Optional title to show on top of the component.
   final String? title;
+
   /// List of [Objects T] containing the data to render in each cell.
   final List<T> items;
+
   /// Number of rows to show.
   /// By default 1.
   final int rows;
+
   /// Number of columns to show.
   /// By default 3.
   final int columns;
+
   /// Class containing width and height of the component.
   /// By default both double.infinity.
   final GridSize size;
+
   /// TextStyle object used to customized the [title] (if [title] is specified).
   /// By default will be grey in bold
   final TextStyle titleStyle;
+
   /// EdgeInsets object used to add Padding to the [title] (if [title] is specified).
   final EdgeInsets? titlePadding;
+
   /// Method which describe how to build each cell.
   /// This method is used by [GridCarouselPage] component.
   final Widget Function(T) cellBuilder;
+
   /// Class used to customized [GridCarouselIndicator].
   /// By default is orange for the current page and grey for the others
   final GridCarouselIndicatorConfig indicatorConfig;
@@ -53,7 +61,6 @@ class GridCarousel<T> extends StatefulWidget {
 }
 
 class _GridCarouselState<T> extends State<GridCarousel<T>> {
-
   /// Build method to render the component.
   @override
   Widget build(BuildContext context) {

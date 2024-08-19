@@ -4,6 +4,7 @@ class GridSize {
 
   /// Width assigned to the component.
   final double width;
+
   /// Height assigned to the component.
   final double height;
 }
