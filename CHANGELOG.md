@@ -1,5 +1,6 @@
 ## 1.0.2
 - Minor changes to fix Flutter Analysis
+- Remove useless component [GridCell]
 
 ## 1.0.1
 - Minor changes to fix Flutter Analysis

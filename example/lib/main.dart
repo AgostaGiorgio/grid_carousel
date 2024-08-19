@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:grid_carousel/grid_carousel.dart';
-import 'package:grid_carousel/grid_cell.dart';
 
 void main() {
   runApp(const MyApp());
@@ -104,9 +103,9 @@ class TestClassInfo {
   TestClassInfo(this.value);
 }
 
-class SelectableCell extends GridCell {
+class SelectableCell extends StatelessWidget {
   const SelectableCell(
-      {super.key,
+      {key,
       required this.data,
       required this.number,
       required this.isSelected,
@@ -134,8 +133,8 @@ class SelectableCell extends GridCell {
   }
 }
 
-class SimpleCell extends GridCell {
-  const SimpleCell({super.key, required this.value, required this.number});
+class SimpleCell extends StatelessWidget {
+  const SimpleCell({required this.value, required this.number});
 
   final String value;
   final int number;
