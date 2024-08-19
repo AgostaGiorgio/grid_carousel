@@ -48,6 +48,16 @@ class _MyHomePageState extends State<MyHomePage> {
     TestClassInfo("random value 10"),
   ];
 
+  // ignore: prefer_typing_uninitialized_variables
+  late var selectedItem;
+
+  @override
+  void initState() {
+    super.initState();
+
+    selectedItem = items[0];
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,15 +67,34 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: Column(
           children: [
+            const Text("Selectable example"),
             GridCarousel<TestClassInfo>(
               rows: rows,
               columns: columns,
               items: items,
-              cellBuilder: (p0) =>
-                  SimpleCell(value: p0.value, number: items.indexOf(p0)),
+              cellBuilder: (p0) => SelectableCell(
+                data: p0,
+                number: items.indexOf(p0),
+                isSelected: p0 == selectedItem,
+                onSelect: _onSelect,
+              ),
             ),
+            const Divider(),
+            const Text("Simple example"),
+            GridCarousel<TestClassInfo>(
+                rows: rows,
+                columns: columns,
+                items: items,
+                cellBuilder: (p0) =>
+                    SimpleCell(value: p0.value, number: items.indexOf(p0))),
           ],
         ));
+  }
+
+  void _onSelect(TestClassInfo item) {
+    setState(() {
+      selectedItem = item;
+    });
   }
 }
 
@@ -73,6 +102,36 @@ class TestClassInfo {
   String value;
 
   TestClassInfo(this.value);
+}
+
+class SelectableCell extends GridCell {
+  const SelectableCell(
+      {super.key,
+      required this.data,
+      required this.number,
+      required this.isSelected,
+      this.onSelect});
+
+  final TestClassInfo data;
+  final int number;
+  final bool isSelected;
+  final Function(TestClassInfo)? onSelect;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => (onSelect != null) ? onSelect!(data) : null,
+      child: Container(
+        color: (isSelected) ? Colors.orange : Colors.lightBlue,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [Text(data.value), Text("List position: $number")],
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 class SimpleCell extends GridCell {
