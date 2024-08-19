@@ -8,7 +8,7 @@ You just need to define:
 Easy and Fast !! 😉
 
 <p align="center">
-  <img src="./example/grid_carousel.gif" alt="Demo Example App" style="margin:auto"  width="250"  height="550">
+  <img src="https://raw.githubusercontent.com/AgostaGiorgio/grid_carousel/1.0.0/example/grid_carousel.gif" alt="Demo Example App" style="margin:auto"  width="250"  height="550">
 </p>
 
 ## Getting started
