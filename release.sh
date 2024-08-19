@@ -14,6 +14,12 @@ git merge develop
 version=$(grep -E '^version:' "pubspec.yaml" | awk '{print $2}')
 echo "Releasing $version"
 
+# Format files
+dart format .
+git add *
+git commit -m "Dart format"
+git push origin master
+
 # Step 4: Create a tag x.y.z
 git tag $version
 git push origin $version
