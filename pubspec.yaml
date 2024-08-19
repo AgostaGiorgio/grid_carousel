@@ -1,6 +1,8 @@
 name: grid_carousel
-description: "A new Flutter package project."
-version: 0.0.1
+description: "This component allows you to render a custom Grid divided automatically in pages"
+version: 1.0.0
+repository: https://github.com/AgostaGiorgio/grid_carousel/tree/master
+
 homepage:
 
 environment:
