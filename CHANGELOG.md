@@ -1,4 +1,4 @@
-## 1.2.1
+## 1.3.0
 - Remove wrong usage of Expanded component
 
 ## 1.2.0
