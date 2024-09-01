@@ -1,3 +1,6 @@
+## 1.2.1
+- Remove wrong usage of Expanded component
+
 ## 1.2.0
 - Update release.sh in order to don't publish manually 
 

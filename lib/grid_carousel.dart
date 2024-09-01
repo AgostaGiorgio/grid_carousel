@@ -67,37 +67,36 @@ class _GridCarouselState<T> extends State<GridCarousel<T>> {
     PageController controller = PageController();
     List<GridCarouselPage> pages = _getPages(_initGrid());
 
-    return Expanded(
-        child: SizedBox(
-            width: widget.size.width,
-            height: widget.size.height,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                if (widget.title != null)
-                  if (widget.titlePadding != null)
-                    Padding(
-                      padding: widget.titlePadding!,
-                      child: Text(widget.title!, style: widget.titleStyle),
-                    )
-                  else
-                    Text(widget.title!, style: widget.titleStyle),
-                Expanded(
-                    child: SizedBox(
-                  child: SizedBox(
-                      width: double.infinity,
-                      child: PageView.builder(
-                          controller: controller,
-                          itemCount: pages.length,
-                          itemBuilder: (context, index) => pages[index])),
-                )),
-                GridCarouselIndicator(
-                    key: widget.key,
-                    len: pages.length,
-                    config: widget.indicatorConfig,
-                    controller: controller)
-              ],
-            )));
+    return SizedBox(
+        width: widget.size.width,
+        height: widget.size.height,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (widget.title != null)
+              if (widget.titlePadding != null)
+                Padding(
+                  padding: widget.titlePadding!,
+                  child: Text(widget.title!, style: widget.titleStyle),
+                )
+              else
+                Text(widget.title!, style: widget.titleStyle),
+            Expanded(
+                child: SizedBox(
+              child: SizedBox(
+                  width: double.infinity,
+                  child: PageView.builder(
+                      controller: controller,
+                      itemCount: pages.length,
+                      itemBuilder: (context, index) => pages[index])),
+            )),
+            GridCarouselIndicator(
+                key: widget.key,
+                len: pages.length,
+                config: widget.indicatorConfig,
+                controller: controller)
+          ],
+        ));
   }
 
   /// Method which will create the matrix [rows]x[columns] from [items].
